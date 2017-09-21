@@ -16,3 +16,9 @@ class Article(models.Model) :
 
     class Meta:  #按时间下降排序
         ordering = ['-date_time']
+
+
+#获取URL并转换成url的表示格式
+    def get_absolute_url(self):
+        path = reverse('detail', kwargs={'id':self.id})
+        return "http://127.0.0.1:8000%s" % path
